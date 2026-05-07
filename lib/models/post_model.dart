@@ -1,6 +1,20 @@
 class PostModel {
+  PostModel({
+    required this.id,
+    required this.type,
+    required this.creationDate,
+    required this.authorId,
+    required this.authorName,
+    required this.content,
+    this.likes = const [],
+    this.caption,
+    this.reposts,
+    this.savedBy = const [],
+    this.sent,
+  });
+
   final int id;
-  final List<dynamic>? likes;
+  final List<String> likes;
   final String? caption;
   final String type;
   final int? reposts;
@@ -11,21 +25,7 @@ class PostModel {
   final int authorId;
   final String authorName;
   // Saved By Info
-  final List<dynamic>? savedBy;
-
-  PostModel({
-    required this.id,
-    required this.type,
-    required this.creationDate,
-    required this.authorId,
-    required this.authorName,
-    required this.content,
-    this.likes,
-    this.caption,
-    this.reposts,
-    this.savedBy,
-    this.sent,
-  });
+  final List<String> savedBy;
 
   factory PostModel.fromJson(Map<String, dynamic> json) {
     return PostModel(
@@ -36,9 +36,9 @@ class PostModel {
       type: json['type'],
       authorName: json['author_name'],
       caption: json['caption'],
-      likes: json['likes'],
+      likes: List<String>.from(json['likes'] ?? []),
       reposts: json['reposts'],
-      savedBy: json['savedBy'],
+      savedBy: List<String>.from(json['savedBy'] ?? []),
       sent: json['sent'],
     );
   }
