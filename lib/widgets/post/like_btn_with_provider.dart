@@ -45,9 +45,9 @@ class _LikeBtnWithProviderState extends State<LikeBtnWithProvider>
   Widget build(BuildContext context) {
     final post = context.watch<PostProvider>().globalPost;
     final isLiked =
-        post?.likes?.contains(GeneralConsts.placeholderNickname) ?? false;
+        post?.likes.contains(GeneralConsts.placeholderNickname) ?? false;
 
-    final likeCount = post?.likes?.length ?? 0;
+    final likeCount = post?.likes.length ?? 0;
 
     return Column(
       mainAxisSize: MainAxisSize.min,

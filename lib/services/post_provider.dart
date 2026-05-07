@@ -13,9 +13,9 @@ class PostProvider extends ChangeNotifier {
   }
 
   void toggleLike() {
-    if (globalPost == null || globalPost!.likes == null) return;
+    if (globalPost == null) return;
 
-    final likes = globalPost!.likes!;
+    final likes = globalPost!.likes;
 
     if (likes.contains(GeneralConsts.placeholderNickname)) {
       likes.remove(GeneralConsts.placeholderNickname);
