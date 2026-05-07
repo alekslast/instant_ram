@@ -43,11 +43,23 @@ class _LikeBtnWithProviderState extends State<LikeBtnWithProvider>
 
   @override
   Widget build(BuildContext context) {
-    final post = context.watch<PostProvider>().globalPost;
-    final isLiked =
-        post?.likes.contains(GeneralConsts.placeholderNickname) ?? false;
+    // final post = context.watch<PostProvider>().globalPost;
+    // final isLiked =
+    //     post?.likes.contains(GeneralConsts.placeholderNickname) ?? false;
 
-    final likeCount = post?.likes.length ?? 0;
+    // final likeCount = post?.likes.length ?? 0;
+
+    final isLiked = context.select<PostProvider, bool>(
+      (provider) =>
+          provider.globalPost?.likes.contains(
+            GeneralConsts.placeholderNickname,
+          ) ??
+          false,
+    );
+
+    final likeCount = context.select<PostProvider, int>(
+      (provider) => provider.globalPost?.likes.length ?? 0,
+    );
 
     return Column(
       mainAxisSize: MainAxisSize.min,

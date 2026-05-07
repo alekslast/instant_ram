@@ -12,10 +12,20 @@ class CaptionAndCommentsModal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final post = context.watch<PostProvider>().globalPost;
-    final postId = post?.id ?? 0;
-    final postCaption = post?.caption ?? '';
-    final authorNickname = post?.authorName ?? '';
+    // final post = context.watch<PostProvider>().globalPost;
+    // final postId = post?.id ?? 0;
+    // final postCaption = post?.caption ?? '';
+    // final authorNickname = post?.authorName ?? '';
+
+    final postId = context.select<PostProvider, int>(
+      (provider) => provider.globalPost?.id ?? 0,
+    );
+    final postCaption = context.select<PostProvider, String>(
+      (provider) => provider.globalPost?.caption ?? '',
+    );
+    final authorNickname = context.select<PostProvider, String>(
+      (provider) => provider.globalPost?.authorName ?? '',
+    );
 
     final double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
 

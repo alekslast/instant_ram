@@ -46,6 +46,9 @@ class FeedPage extends StatelessWidget {
           return RefreshIndicator(
             onRefresh: result.refetch,
             child: ListView.separated(
+              cacheExtent: 1000,
+              addAutomaticKeepAlives: false,
+              addRepaintBoundaries: true,
               itemCount: (result.data?.length ?? 0) + 1,
               separatorBuilder: (context, index) => const SizedBox(height: 15),
               itemBuilder: (context, index) {

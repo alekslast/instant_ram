@@ -10,9 +10,16 @@ class PostPreviewBottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final post = context.watch<PostProvider>().globalPost;
-    final postCaption = post?.caption ?? '';
-    final authorNickname = post?.authorName ?? '';
+    // final post = context.watch<PostProvider>().globalPost;
+    // final authorNickname = post?.authorName ?? '';
+
+    final postCaption = context.select<PostProvider, String>(
+      (provider) => provider.globalPost?.caption ?? '',
+    );
+
+    final authorNickname = context.select<PostProvider, String>(
+      (provider) => provider.globalPost?.authorName ?? '',
+    );
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 5, 10, 10),

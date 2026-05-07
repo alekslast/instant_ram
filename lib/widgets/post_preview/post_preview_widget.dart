@@ -6,7 +6,7 @@ import 'package:instant_ram/services/audio_provider.dart';
 import 'package:instant_ram/services/post_provider.dart';
 import 'package:instant_ram/widgets/add_comment_post_preview.dart';
 import 'package:instant_ram/widgets/post/action_btns_bars/post_action_btns_vertical.dart';
-import 'package:instant_ram/widgets/post/post_preview_bottom_bar.dart';
+import 'package:instant_ram/widgets/post_preview/post_preview_bottom_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 

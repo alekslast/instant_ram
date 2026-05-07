@@ -3,25 +3,33 @@ import 'package:instant_ram/consts/general_consts.dart';
 import 'package:instant_ram/models/post_model.dart';
 
 class PostProvider extends ChangeNotifier {
-  PostProvider({this.globalPost});
+  PostProvider({PostModel? initialPost}) : _globalPost = initialPost;
 
-  PostModel? globalPost;
+  PostModel? _globalPost;
 
-  void changeGlobalPost({required PostModel newPost}) async {
-    globalPost = newPost;
+  PostModel? get globalPost => _globalPost;
+
+  void changeGlobalPost({required PostModel newPost}) {
+    _globalPost = newPost;
     notifyListeners();
   }
 
   void toggleLike() {
-    if (globalPost == null) return;
+    final post = _globalPost;
 
-    final likes = globalPost!.likes;
-
-    if (likes.contains(GeneralConsts.placeholderNickname)) {
-      likes.remove(GeneralConsts.placeholderNickname);
-    } else {
-      likes.add(GeneralConsts.placeholderNickname);
+    if (post == null || post.likes == null) {
+      return;
     }
+
+    final updatedLikes = List<String>.from(post.likes!);
+
+    if (updatedLikes.contains(GeneralConsts.placeholderNickname)) {
+      updatedLikes.remove(GeneralConsts.placeholderNickname);
+    } else {
+      updatedLikes.add(GeneralConsts.placeholderNickname);
+    }
+
+    _globalPost = post.copyWith(likes: updatedLikes);
 
     notifyListeners();
   }
