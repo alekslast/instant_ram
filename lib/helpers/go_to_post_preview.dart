@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instant_ram/widgets/post/post_preview_widget.dart';
+import 'package:instant_ram/widgets/post/post_preview/post_preview_widget.dart';
 
 void goToPostPreview(BuildContext context) {
   Navigator.of(context).push(

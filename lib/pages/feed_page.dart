@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tanstack_query/flutter_tanstack_query.dart';
 import 'package:instant_ram/models/post_model.dart';
 import 'package:instant_ram/services/api_service.dart';
-import 'package:instant_ram/widgets/post/post_widget.dart';
+import 'package:instant_ram/widgets/post/post_feed/post_widget.dart';
 import 'package:instant_ram/widgets/stories_scrollbar.dart';
 
 class FeedPage extends StatelessWidget {

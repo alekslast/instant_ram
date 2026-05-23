@@ -3,7 +3,7 @@ import 'package:instant_ram/consts/enums.dart';
 import 'package:instant_ram/helpers/show_modal.dart';
 import 'package:instant_ram/services/post_provider.dart';
 import 'package:instant_ram/widgets/post/btn_click_responsive.dart';
-import 'package:instant_ram/widgets/post/like_btn_with_provider.dart';
+import 'package:instant_ram/widgets/post/post_preview/like_btn_with_provider.dart';
 import 'package:instant_ram/widgets/post/modals/comments_modal.dart';
 import 'package:instant_ram/widgets/post/modals/more_options_modal.dart';
 import 'package:instant_ram/widgets/post/modals/send_to_friend_modal.dart';
@@ -23,12 +23,6 @@ class PostActionBtnsVertical extends StatelessWidget {
       child: Column(
         spacing: 10,
         children: [
-          // BtnClickResponsive(
-          //   idleIcon: Icons.favorite_border,
-          //   activeIcon: Icon(Icons.favorite, color: Colors.red),
-          //   handlePress: () {},
-          //   orientation: IconOrientation.vertical,
-          // ),
           LikeBtnWithProvider(),
 
           PostActionBtn(
